@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "Noto Journal SC";
+  src: url("assets/fonts/noto-sans-sc.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Noto Journal SC", "Microsoft YaHei UI", sans-serif;
+  font-weight: 430;
+  letter-spacing: .005em;
+}
+
+h1, h2, h3,
+.thesis-card strong,
+.big-takeaway,
+.questions p,
+.journey b,
+.case-map span {
+  font-family: "Noto Journal SC", "Microsoft YaHei UI", sans-serif;
+}
+
+h1 {
+  font-size: clamp(44px, 4.8vw, 68px);
+  font-weight: 760;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+h2 {
+  max-width: 960px;
+  font-size: clamp(32px, 3.15vw, 46px);
+  font-weight: 720;
+  line-height: 1.22;
+  letter-spacing: -.025em;
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+p, li, figcaption {
+  line-height: 1.78;
+}
+
+.lede {
+  font-family: "Noto Journal SC", sans-serif;
+  font-size: 19px;
+  font-weight: 420;
+  line-height: 1.8;
+}
+
+.section-no, .eyebrow, .brand, .nav a,
+.mini-label, .level, .tags span, .chips span {
+  font-family: "Noto Journal SC", "Courier New", monospace;
+}
+
+blockquote,
+.image-card figcaption,
+.timeline-gallery figcaption,
+.failure-images figcaption,
+.compare-grid figcaption,
+.before-after-flow span,
+.orbit-item {
+  font-family: "Noto Journal SC", "Microsoft YaHei UI", sans-serif;
+  font-size: 16px;
+}
+
+.marker {
+  position: relative;
+  z-index: 0;
+  display: inline;
+  padding: 0 .06em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background:
+    linear-gradient(
+      177deg,
+      transparent 0 57%,
+      rgba(239, 231, 70, .60) 57% 88%,
+      transparent 88% 100%
+    );
+}
+
+.marker::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -.03em;
+  right: -.08em;
+  bottom: .06em;
+  height: .22em;
+  background: rgba(246, 235, 64, .20);
+  transform: rotate(-1.2deg);
+  border-radius: 45% 20% 35% 30%;
+}
+
+h2::after {
+  width: 70px;
+  border-bottom: 3px solid currentColor;
+  border-radius: 50%;
+  transform: rotate(-2deg) skewX(-10deg);
+  opacity: .82;
+}
+
+.big-takeaway {
+  position: relative;
+  display: table;
+  padding: 6px 9px 7px;
+  font-size: 19px;
+  line-height: 1.55;
+  text-decoration: none;
+  background: linear-gradient(178deg, transparent 7%, rgba(239, 231, 70, .48) 7% 88%, transparent 88%);
+  transform: rotate(-.35deg);
+}
+
+.process-grid p,
+.case-map p,
+.timeline-gallery figcaption span,
+.section-intro,
+.diagnostic-copy > p,
+.phone-copy p {
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.thesis-card strong {
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.questions p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 42px; }
+  h2 { font-size: 31px; }
+  .lede { font-size: 17px; }
+}

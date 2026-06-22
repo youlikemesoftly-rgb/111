@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向渲染团队的 Codex 使用分享：从创意探索、Rhino 建模到工作与生活自动化。">
+  <title>我和 Codex 的一些好奇心实验</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="layout-v2.css">
+  <link rel="stylesheet" href="scrapbook.css">
+  <link rel="stylesheet" href="type-v4.css">
+  <link rel="stylesheet" href="round-v5.css">
+  <link rel="stylesheet" href="logic-v6.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#cover" aria-label="返回封面">
+      <span class="brand-mark">C</span>
+      <span>CODEX NOTES</span>
+    </a>
+    <nav class="nav" aria-label="章节导航">
+      <a href="#act-one">好奇</a>
+      <a href="#act-two">边界</a>
+      <a href="#act-three">搭档</a>
+      <a href="#act-four">理解</a>
+      <a href="#ending">共创</a>
+    </nav>
+    <div class="actions">
+      <button id="themeToggle" type="button" aria-label="切换深色模式">深色</button>
+      <button id="printBtn" type="button">打印/PDF</button>
+    </div>
+  </header>
+
+  <main id="logic-v6">
+    <section class="slide hero" id="cover" data-index="1">
+      <div class="slide-inner hero-grid">
+        <div>
+          <p class="eyebrow">CODEX FIELD NOTES · 30 MIN</p>
+          <h1>我和 Codex 的<br><span class="marker">一些好奇心实验</span></h1>
+          <p class="lede">把模糊的想法，变成一次可以开始的尝试。</p>
+        </div>
+        <aside class="thesis-card floating-card">
+          <span class="pushpin" aria-hidden="true"></span>
+          <span class="mini-label">OPENING NOTE</span>
+          <strong>我不是为了证明 AI 什么都能做，只是想看看：它能不能陪我把一个模糊想法，多往前推一步。</strong>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide" id="act-one" data-index="2">
+      <div class="slide-inner">
+        <p class="section-no">第一幕 · 从一次好奇开始</p>
+        <h2>只有效果图，Codex 能给我<span class="marker">三维模型</span>吗？</h2>
+        <div class="image-pair page-two-grid">
+          <figure class="image-card target-image-card"><img src="assets/rhino-target.png" alt="手机刻度盘目标效果图" loading="lazy"><figcaption>目标效果图：手机围绕带刻度的圆形展示台陈列。</figcaption></figure>
+          <div class="brief-card origin-note">
+            <p class="note-title">我的起点很简单</p>
+            <div class="origin-path">
+              <div><i>01</i><p>只有一张<span class="marker">目标效果图</span></p></div>
+              <div><i>02</i><p>想把它变成能用于渲染的<span class="marker">三维模型</span></p></div>
+              <div><i>03</i><p>但不知道 Codex 能不能做，也不知道<span class="marker">第一步该提供什么</span></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="3">
+      <div class="slide-inner">
+        <p class="section-no">01 / 刻度盘建模尝试</p>
+        <div class="title-row">
+          <h2>先让它做出来，<br>再看哪里不对</h2>
+          <div class="spec-card">
+            <span>尺寸</span><b>Ø200mm · 高约 18mm</b>
+            <span>结构</span><b>圆盘、刻度、圆角、分模线</b>
+            <span>方式</span><b>Codex 编写 Rhino Python</b>
+          </div>
+        </div>
+        <div class="attempt-layout">
+          <figure class="image-card"><img src="assets/rhino-rough.png" alt="刻度盘第一次粗模" loading="lazy"><figcaption>第一版确实生成了模型，但“能生成”离“能使用”还很远。</figcaption></figure>
+          <ol class="attempt-steps">
+            <li><b>描述目标</b><span>效果图、用途、关键尺寸与 Rhino 版本</span></li>
+            <li><b>生成脚本</b><span>通过 RunPythonScript 在 Rhino 中运行</span></li>
+            <li><b>查看结果</b><span>结构、位置、材质和视觉效果逐项检查</span></li>
+            <li><b>继续反馈</b><span>把“看起来不对”转成具体修改要求</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-inner wide">
+        <p class="section-no">02 / 从粗模到最终效果</p>
+        <h2>结果不是一次生成的，<br>而是<span class="marker">一点点收敛</span>出来的</h2>
+        <div class="timeline-gallery">
+          <figure><div class="frame"><img src="assets/rhino-rough.png" alt="Rhino 最初粗模" loading="lazy"></div><figcaption><b>01 粗模</b><span>数字悬浮、刻度穿模、结构碎片化。</span></figcaption></figure>
+          <figure><div class="frame"><img src="assets/rhino-mid.png" alt="圆盘模型中间版本" loading="lazy"></div><figcaption><b>02 修补</b><span>位置改善，但仍像几何体堆叠。</span></figcaption></figure>
+          <figure><div class="frame"><img src="assets/rhino-late.png" alt="圆盘模型后期版本" loading="lazy"></div><figcaption><b>03 收敛</b><span>继续调整圆角、凸台与接触关系。</span></figcaption></figure>
+          <figure><div class="frame"><img src="assets/rhino-final.jpg" alt="刻度盘最终渲染" loading="lazy"></div><figcaption><b>04 呈现</b><span>回到真实使用场景，完成最终渲染。</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="5">
+      <div class="slide-inner narrow">
+        <p class="section-no">03 / 人与 Codex 如何协作</p>
+        <h2>真正推动结果的，<br>是<span class="marker">反馈循环</span></h2>
+        <div class="feedback-stack">
+          <div><span>我</span><p>“东西都是碎的，我要一整个实体。”</p></div>
+          <div><span>Codex</span><p>重构为整体闭合主体，不再用小方块堆叠。</p></div>
+          <div><span>我</span><p>“刻度要做成稍微内凹的面，我要上材质。”</p></div>
+          <div><span>Codex</span><p>把线条改为浅凹槽，并保留可独立赋材质的槽底。</p></div>
+          <div><span>我</span><p>“先不要凸起结构和数字。”</p></div>
+          <div><span>Codex</span><p>做减法，先保住主体、圆角、分模线和刻度。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dark-slide" data-index="6">
+      <div class="slide-inner success-layout">
+        <div>
+          <p class="section-no">04 / 成功案例结论</p>
+          <h2>AI 负责尝试，<br>人负责<span class="marker">判断</span></h2>
+          <p class="success-copy">Codex 能快速生成、修改和排查脚本，但“结构是否合理”“形态是否接近参考”“哪些细节值得保留”，仍然来自人的经验和判断。</p>
+          <blockquote>AI 负责铺开可能性，人负责让结果收敛。</blockquote>
+        </div>
+        <figure class="success-photo"><img src="assets/rhino-final.jpg" alt="刻度盘最终渲染效果" loading="lazy"><figcaption>一次好奇，最终变成了可以使用的结果。</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="slide warning-slide" id="act-two" data-index="7">
+      <div class="slide-inner">
+        <p class="section-no">第二幕 · 当判断标准不存在</p>
+        <h2>另一次尝试：<br>让 Codex 帮我<span class="marker">展开 UV</span></h2>
+        <div class="failure-layout">
+          <div class="failure-images">
+            <figure class="unknown-target-card"><div class="uv-unknown-visual" role="img" aria-label="不知道正确 UV 展开结果是什么的示意图"><span>?</span></div><figcaption>我想得到正确展开 UV 后的模型。</figcaption></figure>
+            <figure><img src="assets/uv-16.png" alt="Rhino 手机壳接缝选择" loading="lazy"><figcaption>不断选择接缝、重新展开和检查。</figcaption></figure>
+          </div>
+          <div class="failure-copy"><p>这次 Codex 也给了我一个展开 UV 的文件，但贴上贴图后，纹理分布并不均匀，圆角位置依然显示错误。接下来只能不断让它修改，靠碰运气接近结果。</p><blockquote>它看起来越来越像答案，却始终无法确认是不是正确答案。</blockquote></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="8">
+      <div class="slide-inner">
+        <p class="section-no">05 / 为什么反复尝试仍然失败</p>
+        <h2>我一直在让它修改，<br>却不知道该<span class="marker">往哪里收敛</span></h2>
+        <div class="four-grid">
+          <article><span>01</span><h3>目标只有一句话</h3><p>我想得到“正确展开 UV 后的模型”，但并不知道正确结果应该是什么样。</p></article>
+          <article><span>02</span><h3>只能看出哪里不对</h3><p>贴图不均匀、圆角纹理错误；我能指出异常，却说不清怎样才算正确。</p></article>
+          <article><span>03</span><h3>反馈停留在局部</h3><p>我只能让 Codex 修这里、改那里，无法给出明确的收敛方向。</p></article>
+          <article><span>04</span><h3>修改变成碰运气</h3><p>文件不断更新，但每次结果都像在猜，无法确认是否更接近正确答案。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dark-slide" data-index="9">
+      <div class="slide-inner narrow">
+        <p class="section-no">06 / 核心认识</p>
+        <h2>不知道什么是正确，<br>就无法<span class="marker">稳定收敛</span></h2>
+        <div class="convergence-flow">
+          <div><span>想做什么</span><b>目标</b></div><i>→</i>
+          <div><span>什么算好</span><b>标准</b></div><i>→</i>
+          <div><span>如何确认</span><b>验证</b></div>
+        </div>
+        <blockquote class="final-quote">AI 可以带我们走到认知边缘；越过边缘之后，需要参考、标准、测试或更有经验的人把结果拉回现实。</blockquote>
+      </div>
+    </section>
+
+    <section class="slide tinted creative-project-intro" id="act-three" data-index="10">
+      <div class="slide-inner project-intro-light">
+        <p class="section-no">第三幕 · 从执行工具变成工作搭档</p>
+        <h2>我最常用的 Codex 工作流：<br><span class="marker">AI 创意方案探索</span></h2>
+        <div class="project-definition-sheet">
+          <blockquote>它不是从模糊想法直接跳到方案，而是先帮助我把问题定义清楚。</blockquote>
+          <p>这是我在策划前期使用最频繁的一套工作流。它先识别输入中的信息缺口、逻辑冲突和表达歧义，将零散想法整理成可以讨论的问题；再通过提问确认目标、约束与优先级，最后形成可执行的视觉方向。</p>
+          <div class="project-workflow" aria-label="AI 创意方案探索工作流">
+            <span>零散输入</span><i>→</i><span>问题诊断</span><i>→</i><span>需求澄清</span><i>→</i><span>我的判断</span><i>→</i><span>方案输出</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="11">
+      <div class="slide-inner">
+        <p class="section-no">07 / 模糊输入从哪里开始</p>
+        <h2>需求的起点，<br>往往不是一份完整 <span class="marker">Brief</span></h2>
+        <div class="creative-input-layout">
+          <div class="input-scraps text-only-scraps">
+            <blockquote><span>“想角度有张力一点。”</span></blockquote>
+            <blockquote><span>“整体高级一点。”</span></blockquote>
+            <blockquote><span>“光影参考这种感觉。”</span></blockquote>
+            <blockquote><span>“这里看起来不太对。”</span></blockquote>
+          </div>
+          <div class="input-note">
+            <p class="note-label">MY INPUT</p>
+            <h3>它可能不是一份完整需求</h3>
+            <ul>
+              <li>一张产品图</li>
+              <li>几张氛围参考</li>
+              <li>一个想表达的卖点</li>
+              <li>一句说不清楚的“不对劲”</li>
+            </ul>
+          </div>
+        </div>
+        <p class="big-takeaway">第一步不是立即生成方案，而是把零散信息整理成目标明确、约束清晰、可以继续讨论的问题。</p>
+      </div>
+    </section>
+
+    <section class="slide" data-index="12">
+      <div class="slide-inner">
+        <p class="section-no">08 / 生成前需求逻辑诊断</p>
+        <h2>先做<span class="marker">需求诊断</span>，<br>再进入提示词生成</h2>
+        <p class="section-intro diagnosis-intro">首先审视需求中是否存在信息缺失或条件冲突，确认画面在物理与视觉上能否成立。</p>
+        <div class="brake-grid text-diagnosis-grid">
+          <article><span>物理逻辑冲突</span><h3>需求</h3><p>“既要看到手机屏幕显示正在充电，又想尽可能完整地展示背面的磁吸充电宝。”</p><h3>诊断</h3><small>屏幕与充电宝位于手机前后两侧，单一视角无法同时完整呈现。</small></article>
+          <article><span>风格冲突</span><h3>需求</h3><p>“紫色手机壳、紫色鸢尾花、浅紫花丛和粉紫晚霞都要突出。”</p><h3>诊断</h3><small>同色元素过度叠加，产品容易失去轮廓和视觉层级。</small></article>
+          <article><span>关键信息缺失</span><h3>需求</h3><p>“整体更高级一点，角度更有张力。”</p><h3>诊断</h3><small>“高级”和“张力”缺少具体参照，尚未明确镜头、光影、材质与视觉重点。</small></article>
+        </div>
+        <blockquote class="diagnosis-note">需求诊断不是否定想法，而是在生成之前减少无效试错。</blockquote>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="13">
+      <div class="slide-inner question-choice-layout">
+        <div>
+          <p class="section-no">09 / 通过提问确认优先级</p>
+          <h2>它不替我做决定，<br>而是用提问帮助我<span class="marker">明确取舍</span></h2>
+          <p class="section-intro">当需求中存在无法同时满足的条件时，Codex 不直接假设答案，而是将冲突转化为具体选项；等待我确认优先级后，再继续进入方案阶段。</p>
+        </div>
+        <div class="choice-sheet">
+          <p class="note-label">ONE KEY QUESTION</p>
+          <h3>屏幕与背面的磁吸充电宝无法在单一视角中同时完整展示。你更希望优先表达哪一点？</h3>
+          <div class="choice-options">
+            <div><b>01</b><span><strong>优先展示正在充电</strong><small>屏幕朝向镜头，充电宝只保留侧面或轮廓信息。</small></span></div>
+            <div><b>02</b><span><strong>优先展示充电宝</strong><small>手机背面朝向镜头，完整表现结构与吸附关系。</small></span></div>
+            <div><b>03</b><span><strong>两个信息都需要</strong><small>拆分为主副画面或两张图，不强塞进同一个视角。</small></span></div>
+          </div>
+          <p class="choice-answer"><b>等待你的选择</b><br>在收到回复前，不继续生成最终提示词。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="14">
+      <div class="slide-inner">
+        <p class="section-no">10 / 从口语反馈到可执行约束</p>
+        <h2>大方向确定后，<br>把“大白话”翻译成<span class="marker">可执行指令</span></h2>
+        <p class="section-intro translator-intro">进入细节迭代后，我只需要用自然语言描述主观感受；Codex 会将反馈拆解为镜头、构图、光影、材质和空间关系等模型更容易识别的约束。</p>
+        <div class="translator-labels"><span>我说的大白话</span><span>Codex 转译的视觉约束</span></div>
+        <div class="feedback-translator text-translator">
+          <div><blockquote>“姿势变了”</blockquote><i>→</i><p>锁定参考图的低机位、人物重心、手机位置与产品朝向，不改变原有构图关系。</p></div>
+          <div><blockquote>“黑色手机太黑了”</blockquote><i>→</i><p>提升主体暗部层次，增加侧前方柔光与边缘轮廓光，保留黑色材质灰阶，避免剪影化。</p></div>
+          <div><blockquote>“光影不够聚焦背板”</blockquote><i>→</i><p>将主光集中于半透明背板，强化透光、雾化、折射与边缘高光，降低背景的亮度竞争。</p></div>
+        </div>
+        <p class="big-takeaway">我负责判断哪里不对，Codex 负责把判断转换成模型可执行的语言。</p>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="15">
+      <div class="slide-inner wide">
+        <p class="section-no">11 / 车载场景 · RAV4</p>
+        <h2>车内饰不用再东拼西凑：<br>让 Codex 读取<span class="marker">可交互全景</span></h2>
+        <p class="section-intro">汽车网站中的这类页面通常称为“360° VR 全景看车”或“可交互内饰全景”，可以拖动视角查看车舱不同方向。</p>
+        <div class="vr-case-layout">
+          <div class="vr-case-copy">
+            <div class="vr-steps">
+              <div><b>01</b><span><strong>提供真实车型链接</strong><small>锁定同一车型、同一内饰版本和完整空间结构。</small></span></div>
+              <div><b>02</b><span><strong>描述需要的观察视角</strong><small>说明机位、镜头方向以及希望看到的中控与驾驶舱范围。</small></span></div>
+              <div><b>03</b><span><strong>生成目标车内场景</strong><small>以全景内饰为真实参考，不再依靠零散图片拼接车舱。</small></span></div>
+            </div>
+            <a class="vr-source-link" href="https://www.yoojia.com/vrpano/m-121094.html" target="_blank" rel="noopener noreferrer"><span>车辆参考链接</span><b>有驾 · RAV4 360° 全景看车 ↗</b></a>
+          </div>
+          <figure class="vr-result-card"><img src="assets/rav4-vr-result.png" alt="依据 RAV4 全景内饰参考生成的目标车载视角"><figcaption>指定视角后得到的 RAV4 车内场景</figcaption></figure>
+        </div>
+        <p class="big-takeaway">不再让 AI 猜车内饰，而是给它一个可以转动的真实空间参考。</p>
+      </div>
+    </section>
+
+    <section class="slide playful" data-index="16">
+      <div class="slide-inner">
+        <p class="section-no">12 / 从一次任务进入日常</p>
+        <h2>帮我记录，也在合适的时间<span class="marker">提醒我</span></h2>
+        <div class="daily-pair">
+          <div class="daily-work">
+            <h3>工作里的外置记忆</h3>
+            <div class="source-list">
+              <div><i>日</i><span><b>每天工作记录</b>自动整理为周报</span></div>
+              <div><i>课</i><span><b>课程内容</b>整理知识与方法</span></div>
+              <div><i>新</i><span><b>设计资讯</b>持续抓取与筛选</span></div>
+            </div>
+          </div>
+          <div class="phone mini-phone">
+            <div class="phone-top"></div>
+            <div class="msg"><span>09:45</span><p>先喝一杯水吧 💧</p></div>
+            <div class="msg"><span>11:50</span><p>该点外卖了。</p></div>
+            <div class="msg"><span>15:10</span><p>起来走动两分钟 🌿</p></div>
+            <div class="msg accent-msg"><span>飞书助手</span><p>今天的工作记录已整理。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dark-slide" id="act-four" data-index="17">
+      <div class="slide-inner">
+        <p class="section-no">第四幕 · 我现在怎样理解 Codex</p>
+        <h2>它在我的工作里，<br>逐渐承担了五种角色</h2>
+        <div class="ability-map">
+          <article><span>想</span><b>整理与发散</b><p>把模糊想法变成清晰问题。</p></article>
+          <article><span>做</span><b>执行与迭代</b><p>写脚本、改文件、推进任务。</p></article>
+          <article><span>判</span><b>诊断与检查</b><p>提供第二视角和检查框架。</p></article>
+          <article><span>记</span><b>积累与整理</b><p>保存每天产生的信息碎片。</p></article>
+          <article><span>提</span><b>提醒与陪伴</b><p>在真实时间里主动出现。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ending" id="ending" data-index="18">
+      <div class="slide-inner">
+        <p class="section-no">结尾</p>
+        <h2><span class="marker">保持好奇</span>，<br>让“想试试”真正发生</h2>
+        <p class="lede">Codex 最有意思的地方，不是它替我完成了多少，而是它降低了把想法变成一次尝试的门槛。</p>
+        <p class="closing-bridge">如果也想开始，不需要先搭建一套复杂系统，可以从三个小动作开始。</p>
+        <div class="closing-actions">
+          <article><span>01</span><h3>从一个真实问题开始</h3><p>选择一个反复出现、正在消耗时间的小问题。</p></article>
+          <i>→</i>
+          <article><span>02</span><h3>保留自己的判断标准</h3><p>先想清楚什么算好，以及哪些结果不能接受。</p></article>
+          <i>→</i>
+          <article><span>03</span><h3>只交给 AI 最小的一步</h3><p>让它先尝试一次，再根据结果决定下一步。</p></article>
+        </div>
+        <div class="end-mark">谢谢 · 一起试试看</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="legacy" hidden>
+    <section class="slide hero" id="cover" data-index="1">
+      <div class="slide-inner hero-grid">
+        <div>
+          <p class="eyebrow">FIELD NOTES 01 · 渲染团队内部分享</p>
+          <h1>Codex，进入<br><span class="marker">我的工作之后</span></h1>
+          <p class="lede">一份关于创意探索、Rhino 建模、判断辅助与日常工作流的个人实验记录。</p>
+          <div class="chips">
+            <span>真实案例</span><span>成功与失败</span><span>保持好奇</span>
+          </div>
+        </div>
+        <aside class="thesis-card floating-card">
+          <span class="mini-label">核心观点</span>
+          <strong>我没有把它当成答案机器，而是用它放大尝试、判断和反馈的速度。</strong>
+        </aside>
+      </div>
+      <div class="scroll-hint">向下滚动 <span>↓</span></div>
+    </section>
+
+    <section class="slide" id="thread" data-index="2">
+      <div class="slide-inner narrow">
+        <p class="section-no">01 / 为什么分享</p>
+        <h2>所有尝试，始于一句<br>“你会用犀牛吗？”</h2>
+        <div class="split-copy">
+          <p>后来，Codex 开始参与创意发散、写 Rhino 脚本、检查渲染、整理课程与周报，甚至通过飞书提醒我喝水和走动。</p>
+          <blockquote>原本只是临时求助，后来逐渐变成了一套能够反复调用的工作方法。</blockquote>
+        </div>
+        <div class="journey" aria-label="使用路径">
+          <div><b>问</b><span>解释问题</span></div>
+          <i>→</i>
+          <div><b>想</b><span>梳理创意</span></div>
+          <i>→</i>
+          <div><b>做</b><span>执行任务</span></div>
+          <i>→</i>
+          <div><b>记</b><span>沉淀信息</span></div>
+          <i>→</i>
+          <div><b>陪</b><span>主动提醒</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide tinted" id="creative" data-index="3">
+      <div class="slide-inner">
+        <p class="section-no">02 / 使用最频繁的方式</p>
+        <h2>不是替我想创意，<br>而是先<span class="marker">把混乱变成问题</span></h2>
+        <div class="process-grid">
+          <article><span>01</span><h3>零散输入</h3><p>卖点、片段语言、粗略画面和没想清楚的感觉。</p></article>
+          <article><span>02</span><h3>逻辑诊断</h3><p>先检查物理、空间、材质、光影和叙事冲突。</p></article>
+          <article><span>03</span><h3>关键提问</h3><p>每次只问一个关键问题，给出 2–3 个可选方向。</p></article>
+          <article><span>04</span><h3>我的判断</h3><p>我选择、补充和纠偏，明确什么才算“做对”。</p></article>
+          <article><span>05</span><h3>结构化方案</h3><p>把模糊想法整理成 AI 更容易执行的视觉语言。</p></article>
+        </div>
+        <p class="big-takeaway">先诊断，后提问；先对齐，再执行。</p>
+      </div>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="slide-inner">
+        <p class="section-no">03 / 关于“偷懒”</p>
+        <h2>AI 帮我偷的，<br>是<span class="marker">重复试错的懒</span></h2>
+        <div class="level-cards">
+          <article class="level-card coral">
+            <span class="level">Level 1</span><h3>直接使用</h3>
+            <p>当 AI 图的自然感、人物状态和光影已经合适，就不必为了“必须渲染”而重做。</p>
+          </article>
+          <article class="level-card blue">
+            <span class="level">Level 2</span><h3>视觉预演</h3>
+            <p>先比较构图、场景和灯光方向，再决定哪一版值得进入精细制作。</p>
+          </article>
+          <article class="level-card green">
+            <span class="level">Level 3</span><h3>光影参考</h3>
+            <p>把 AI 的光线方向、明暗层次和色温作为打灯参考，减少盲目试灯。</p>
+          </article>
+        </div>
+        <div class="before-after-flow">
+          <span>直接建模渲染</span><b>→</b><span>反复试灯</span>
+          <em>变成</em>
+          <span>AI 快速预演</span><b>→</b><span>有目标地渲染</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dark-slide" data-index="5">
+      <div class="slide-inner">
+        <p class="section-no">04 / 案例地图</p>
+        <h2>六种尝试，六种不同的帮助</h2>
+        <div class="case-map">
+          <article><span>想</span><h3>AI 创意方案探索</h3><p>把零散想法变成有逻辑的视觉方案。</p></article>
+          <article><span>做</span><h3>Rhino 建模</h3><p>用脚本快速尝试、修改和交付模型。</p></article>
+          <article><span>辨</span><h3>UV 展开失败</h3><p>看见 AI 与自身认知的共同边界。</p></article>
+          <article><span>校</span><h3>渲染效果诊断</h3><p>没把握时，多一双结构化检查的眼睛。</p></article>
+          <article><span>记</span><h3>周报与课程助手</h3><p>把每天的信息积累成长期记忆。</p></article>
+          <article><span>陪</span><h3>飞书生活提醒</h3><p>让 AI 从被动回答变成主动出现。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="rhino" data-index="6">
+      <div class="slide-inner">
+        <p class="section-no">05 / 核心案例 · Rhino 建模</p>
+        <div class="title-row">
+          <h2>只有效果图，<br>可以得到 <span class="marker">3DM</span> 吗？</h2>
+          <div class="spec-card">
+            <span>目标</span><b>Ø200mm 圆盘刻度台</b>
+            <span>用途</span><b>产品渲染</b>
+            <span>方式</span><b>Rhino 7 + Python</b>
+          </div>
+        </div>
+        <div class="image-pair">
+          <figure class="image-card dark-media"><img src="assets/rhino-reference.png" alt="圆盘刻度台参考效果局部" loading="lazy"><figcaption>参考效果：真实产品中的圆盘、刻度与角度标识</figcaption></figure>
+          <div class="brief-card">
+            <span class="quote-mark">“</span>
+            <p>我只要求外观一样，用于渲染。你给我建模，然后给我 3DM 文件，可以先出个简易的。</p>
+            <div class="tags"><span>多角度效果图</span><span>关键尺寸</span><span>Rhino 版本</span><span>交付用途</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="7">
+      <div class="slide-inner wide">
+        <p class="section-no">06 / 演变时间线</p>
+        <h2>第一次能运行，不代表能使用</h2>
+        <div class="timeline-gallery">
+          <figure><div class="frame"><img src="assets/rhino-rough.png" alt="Rhino 最初粗模" loading="lazy"></div><figcaption><b>01 能跑起来</b><span>数字悬浮、刻度穿模、结构碎片化。</span></figcaption></figure>
+          <figure><div class="frame"><img src="assets/rhino-mid.png" alt="圆盘模型中间版本" loading="lazy"></div><figcaption><b>02 视觉修补</b><span>位置改善，但模型仍像几何体堆叠。</span></figcaption></figure>
+          <figure><div class="frame"><img src="assets/rhino-late.png" alt="圆盘模型后期版本" loading="lazy"></div><figcaption><b>03 结构收敛</b><span>改圆角、凸台、材质和接触关系。</span></figcaption></figure>
+          <figure><div class="frame"><img src="assets/rhino-final.jpg" alt="圆盘刻度台最终渲染呈现" loading="lazy"></div><figcaption><b>04 最终呈现</b><span>回到真实使用场景，完成渲染表达。</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="8">
+      <div class="slide-inner narrow">
+        <p class="section-no">07 / 人机协作真正发生的地方</p>
+        <h2>Codex 负责快速尝试，<br>人负责判断什么才是正确的</h2>
+        <div class="feedback-stack">
+          <div><span>你</span><p>“东西都是碎的，我要一整个实体。”</p></div>
+          <div><span>Codex</span><p>重构为整体闭合主体，不再用大量小方块堆叠。</p></div>
+          <div><span>你</span><p>“刻度要做成稍微内凹的面，我要上材质。”</p></div>
+          <div><span>Codex</span><p>把线条改为浅凹槽，并保留可独立赋材质的槽底。</p></div>
+          <div><span>你</span><p>“先不要凸起结构和数字。”</p></div>
+          <div><span>Codex</span><p>做减法，优先保住主体、圆角、分模线和刻度。</p></div>
+        </div>
+        <p class="big-takeaway">好的提示词不是一开始写出来的，而是在判断与反馈中长出来的。</p>
+      </div>
+    </section>
+
+    <section class="slide warning-slide" data-index="9">
+      <div class="slide-inner">
+        <p class="section-no">08 / 一个没有成功的案例 · UV 展开</p>
+        <h2>如果自己也不知道<span class="marker">正确答案</span>，<br>AI 还能带我们走多远？</h2>
+        <div class="failure-layout">
+          <div class="failure-images">
+            <figure><img src="assets/uv-12.png" alt="KeyShot UV 展开界面" loading="lazy"><figcaption>目标模糊：“想要和教程一样”</figcaption></figure>
+            <figure><img src="assets/uv-16.png" alt="Rhino 手机壳模型接缝选择" loading="lazy"><figcaption>尝试很多，但缺少统一验收标准</figcaption></figure>
+          </div>
+          <div class="failure-copy">
+            <ul>
+              <li>格子多均匀才算合格？</li>
+              <li>哪些接缝可以接受？</li>
+              <li>圆角允许多少拉伸？</li>
+              <li>目标是精确 UV，还是渲染看起来正确？</li>
+            </ul>
+            <blockquote>没有判断标准的生成，只会产生越来越像答案的东西。</blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="cases" data-index="10">
+      <div class="slide-inner wide">
+        <p class="section-no">09 / 场景一致性 · RAV4 内饰</p>
+        <h2>给 AI 一个<span class="marker">真实世界的坐标系</span></h2>
+        <p class="section-intro">车载 AI 场景常常像不同车型东拼西凑。解决方法不是继续说“更真实”，而是指定准确车型、提供真实全景参考，并逐步修正产品与环境的接触关系。</p>
+        <div class="compare-grid">
+          <figure><img src="assets/rav4-before.png" alt="结构混杂的车内饰场景" loading="lazy"><figcaption><span>Before</span>车舱结构混杂，产品像悬浮在环境里</figcaption></figure>
+          <figure><img src="assets/rav4-after.png" alt="统一为 RAV4 黑色内饰后的场景" loading="lazy"><figcaption><span>Anchor</span>锁定 RAV4 2023 黑色内饰结构</figcaption></figure>
+          <figure><img src="assets/rav4-final.png" alt="支架与车内环境融合后的最终场景" loading="lazy"><figcaption><span>After</span>继续调整支架位置、支撑和接触关系</figcaption></figure>
+        </div>
+        <p class="big-takeaway">参考资料不是让 AI 照抄，而是让它不再胡乱拼接。</p>
+      </div>
+    </section>
+
+    <section class="slide tinted" data-index="11">
+      <div class="slide-inner">
+        <p class="section-no">10 / 渲染效果诊断</p>
+        <h2>没把握的时候，<br>先让它<span class="marker">帮我看一遍</span></h2>
+        <div class="diagnostic-layout">
+          <div class="radar" aria-label="渲染诊断维度">
+            <div class="radar-shape"></div>
+            <span style="--x:50%;--y:3%">光影</span>
+            <span style="--x:92%;--y:34%">材质</span>
+            <span style="--x:80%;--y:84%">比例</span>
+            <span style="--x:20%;--y:84%">接触</span>
+            <span style="--x:8%;--y:34%">环境</span>
+          </div>
+          <div class="diagnostic-copy">
+            <h3>“产品和环境不融合”不是一个可执行的问题。</h3>
+            <p>诊断工具把这种模糊感觉拆成一组可以检查的维度：光源方向、色温、接触阴影、环境反射、尺度、材质粗糙度和透视。</p>
+            <div class="checklist"><span>先定位问题</span><span>再决定是否重渲</span><span>最后给出修改优先级</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="12">
+      <div class="slide-inner">
+        <p class="section-no">11 / 把日常碎片积累下来</p>
+        <h2>周报只是出口，<br>真正省下的是<span class="marker">重新回忆</span></h2>
+        <div class="memory-flow">
+          <div class="source-list">
+            <div><i>日</i><span><b>每天工作记录</b>项目进度、问题与下一步</span></div>
+            <div><i>课</i><span><b>课程记录</b>整理知识点与可执行方法</span></div>
+            <div><i>新</i><span><b>设计资讯</b>持续抓取并筛选相关内容</span></div>
+          </div>
+          <div class="merge-arrow">→</div>
+          <article class="report-sheet">
+            <div class="sheet-head"><span>WEEKLY</span><small>自动整理</small></div>
+            <h3>本周工作回顾</h3>
+            <p>01 · 完成事项与阶段成果</p>
+            <p>02 · 遇到的问题与解决方式</p>
+            <p>03 · 新知识、课程与设计观察</p>
+            <p>04 · 下周计划与需要协同的事项</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide playful" data-index="13">
+      <div class="slide-inner">
+        <p class="section-no">12 / 进入生活</p>
+        <h2>当 AI 不再等我提问，<br>而是按时间<span class="marker">主动出现</span></h2>
+        <div class="phone-scene">
+          <div class="phone">
+            <div class="phone-top"></div>
+            <div class="msg"><span>09:45</span><p>上午好，先喝一杯水吧 💧</p></div>
+            <div class="msg"><span>11:50</span><p>该点外卖了，别等到饿过头。</p></div>
+            <div class="msg"><span>15:10</span><p>起来走动两分钟，看看远处 🌿</p></div>
+            <div class="msg accent-msg"><span>飞书助手</span><p>今天的工作记录已整理。</p></div>
+          </div>
+          <div class="phone-copy">
+            <div class="orbit-item">喝水</div><div class="orbit-item">走动</div><div class="orbit-item">点外卖</div><div class="orbit-item">记录工作</div>
+            <p>桥接飞书以后，Codex 从一个软件界面变成了能在真实时间里找到我的助手。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide dark-slide" data-index="14">
+      <div class="slide-inner narrow">
+        <p class="section-no">13 / 我目前的答案</p>
+        <h2>AI 不是只能完成<br>我们认知内的东西</h2>
+        <div class="boundary-layers">
+          <div><span>认知范围内</span><b>加速执行</b><p>快速产出、修改和整理。</p></div>
+          <div><span>认知边缘处</span><b>帮助探索</b><p>解释概念、提出假设、设计小实验。</p></div>
+          <div><span>认知范围外</span><b>需要锚点</b><p>引入参考、专业标准、真实测试或更有经验的人。</p></div>
+        </div>
+        <blockquote class="final-quote">AI 可以把我们带到认知边缘；越过边缘之后，需要反馈把它拉回现实。</blockquote>
+      </div>
+    </section>
+
+    <section class="slide ending" id="ending" data-index="15">
+      <div class="slide-inner">
+        <p class="section-no">结束页</p>
+        <h2><span class="marker">保持好奇</span>，<br>让“想试试”真正发生</h2>
+        <p class="lede">Codex 最有意思的地方，不是它替我做了多少，而是它降低了“我能不能试试看”的门槛。</p>
+        <div class="questions">
+          <div><span>01</span><p>我的工作里，哪些需求总是在重复出现？</p></div>
+          <div><span>02</span><p>我判断这件事好坏的标准是什么？</p></div>
+          <div><span>03</span><p>如果让 AI 先帮我做一步，最值得交给它的是哪一步？</p></div>
+        </div>
+        <div class="end-mark">谢谢 · 一起试试看</div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="progress" aria-label="阅读进度">
+    <div class="progress-line"><i id="progressFill"></i></div>
+    <span id="progressText">1 / 15</span>
+  </aside>
+
+  <dialog id="lightbox">
+    <button type="button" aria-label="关闭大图">×</button>
+    <img alt="大图预览">
+    <p></p>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

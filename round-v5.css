@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
+
+:root {
+  --cute-font: "ZCOOL KuaiLe", "Noto Journal SC", "Microsoft YaHei UI", sans-serif;
+}
+
+body {
+  font-family: "Noto Journal SC", "Microsoft YaHei UI", sans-serif;
+}
+
+h1, h2, h3,
+.thesis-card strong,
+.big-takeaway,
+.questions p,
+.journey b,
+.case-map span,
+blockquote,
+.image-card figcaption,
+.timeline-gallery figcaption,
+.failure-images figcaption,
+.compare-grid figcaption,
+.before-after-flow span,
+.before-after-flow em,
+.orbit-item,
+.radar span,
+.source-list i,
+.report-sheet h3,
+.level-card h3,
+.process-grid h3,
+.diagnostic-copy h3 {
+  font-family: var(--cute-font);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(44px, 4.7vw, 66px);
+  line-height: 1.15;
+  letter-spacing: .005em;
+}
+
+h2 {
+  font-size: clamp(31px, 3vw, 44px);
+  line-height: 1.28;
+  letter-spacing: .006em;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: .01em;
+}
+
+.thesis-card strong {
+  font-size: 20px;
+  line-height: 1.75;
+}
+
+blockquote {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.big-takeaway {
+  font-size: 20px;
+  line-height: 1.65;
+}
+
+.image-card figcaption,
+.timeline-gallery figcaption,
+.failure-images figcaption,
+.compare-grid figcaption,
+.before-after-flow span,
+.orbit-item {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.questions p {
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.hero::before,
+.thesis-card::after {
+  font-family: var(--cute-font);
+}
+
+.hero .lede {
+  font-family: var(--cute-font);
+  font-size: 20px;
+  line-height: 1.7;
+  letter-spacing: .015em;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 30px; }
+}
